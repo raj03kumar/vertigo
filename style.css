@@ -1,0 +1,160 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    padding-right: 8px;
+    background: #111;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    min-height: 100vh;
+    padding: 2.5em;
+    background: url(bg.jpg) no-repeat center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1{
+    position: relative;
+}
+
+.title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.text-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 0;
+    height: 100%;
+}
+
+.about{
+    padding: 2em;
+    background: #111;
+    color: #fff;
+}
+
+.about h1{
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+.about p{
+    margin: 0.5em 0;
+    line-height: 30px;
+    font-size: 1.1em;
+    max-width: 400px;
+    color: #ccc;
+}
+
+/* Custom Scrollbar*/
+
+/* width */
+::-webkit-scrollbar{
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track{
+    background: #ebcaf5;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb{
+    background: #420177;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover{
+    background: #7e3bb6;
+}
+
+.load-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#333, #222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    transition: 0.5s ease-out;
+}
+
+.spinner{
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background: #111;
+    position: relative;
+    overflow: hidden;
+}
+
+.spinner::before, .spinner span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner::before{
+    content: "";
+    background: #333;
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.spinner span{
+    background: #fff;
+    width: 100%;
+    height: 3em;
+    z-index: 0;
+    animation: spin 2s ease-in-out infinite;
+}
+
+@media screen and (min-width: 1000px) {
+    .title{
+        font-size: 3.5em;
+    }
+}
+@keyframes spin{
+    100%{
+        transform: translate(-50%, -50%) rotate(720deg);
+    }
+}
+@keyframes slide{
+    49%{
+        left: 0;
+    }
+    50%{
+        width: 100%;
+        left: initial;
+        right: 0;
+    }
+    100%{
+        width: 0;
+        left: initial;
+        right: 0;
+    }
+}
